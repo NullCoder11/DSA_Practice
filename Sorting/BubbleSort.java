@@ -1,4 +1,5 @@
 //Bubble sort
+//Bubble sort
 
 import java.util.*;
 class BubbleSort{
@@ -11,19 +12,25 @@ int arr[]=new int[n];
 for(int i=0;i<n;i++){
 arr[i]=sc.nextInt();
 }
-for(int i=0;i<n-1;i++){
-for(int j=0;j<n-i-1;j++){
-if(arr[j]>arr[j+1]){
-//swap
-int temp=arr[j];
-arr[j]=arr[j+1];
-arr[j+1]=temp;
+bubble(arr);
+System.out.print(Arrays.toString(arr));
 }
-}
-}
-for(int i =0;i<n;i++){
-System.out.println(arr[i]);
-}
-System.out.println();
+static void bubble(int arr[]){
+    boolean swap;
+    for(int i=0;i<arr.length;i++){
+        swap=false;
+        for(int j=1;j<arr.length-i;j++){
+            if(arr[j]<arr[j-1]){
+                int temp = arr[j];
+                arr[j]=arr[j-1];
+                arr[j-1]=temp;
+                //if swap takes place
+                swap=true;
+            }
+        }
+        if(!swap){
+            break;
+        }
+    }
 }
 }
